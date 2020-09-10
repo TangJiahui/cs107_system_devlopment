@@ -1,3 +1,4 @@
+#!/bin/bash
 grep -c [0-9] apollo13.txt > apollo_out.txt
 grep --help | grep -- --count
 ls -l | grep -c "\.py$"

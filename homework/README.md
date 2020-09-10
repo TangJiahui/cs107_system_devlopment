@@ -30,7 +30,7 @@ A list of homework could be found at:
 
 | Homework      | My Answer     | Comments  |
 | ------------- |:-------------:| ---------:|
-| [Homework#0](https://harvard-iacs.github.io/2020-CS107/homework/HW0/notebook/)   | [HWO](https://github.com/TangJiahui/cs107_jiahui_tang/blob/master/homework/hw0.py) | NA		|
+| [Homework#0](https://harvard-iacs.github.io/2020-CS107/homework/HW0/notebook/)   | [HW0](https://github.com/TangJiahui/cs107_jiahui_tang/blob/master/homework/hw0.py) | NA		|
 | [Homework#1](https://harvard-iacs.github.io/2020-CS107/homework/HW1/notebook/)    | right-aligned | NA		|
 | Homework#2    | centered      |   	    |
 | Homework#3    | are neat      |    	    |
