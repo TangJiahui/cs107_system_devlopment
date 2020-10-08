@@ -22,7 +22,7 @@ for model in models:
     model.fit(X_train, y_train)
     score = model.score(X_test, y_test)
     model_scores.append(score)
-    print(str(type(model).__name__)+"has R^2 score of: " + str(score))
+    print(str(type(model).__name__)+" has R^2 score of: " + str(score))
 
 best_model = models[model_scores.index(max(model_scores))]
 print("The best model is " + str(type(best_model).__name__))
