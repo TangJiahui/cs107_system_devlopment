@@ -5,7 +5,6 @@ class AccountType(Enum):
     CHECKING = 2
 
 class BankAccount():
-    
     def __init__(self, owner, accountType: AccountType):
         self.owner = owner
         self.accountType = accountType
@@ -13,15 +12,15 @@ class BankAccount():
 
     def withdraw(self, amount):
         if amount > self.balance:
-            raise ValueError("not be able to withdraw more money than the balance of the account")
+            raise ValueError("Error: not be able to withdraw more money than the balance of the account")
         elif amount < 0:
-            raise ValueError("not be able to withdraw a negative amount from your account")
+            raise ValueError("Error: not be able to withdraw a negative amount from your account")
         else:
             self.balance -= amount
         
     def deposit(self, amount):
         if amount < 0:
-            raise ValueError("not be able to deposit a negative amount into your account")
+            raise ValueError("Error: not be able to deposit a negative amount into your account")
         else:
             self.balance += amount
 
@@ -124,6 +123,7 @@ def ATMSession(bankUser):
                 print(e);
     return Interface
 
-user = BankUser("Joe");
-interface_fn = ATMSession(user)
-interface_fn()
+## test closure ##
+#user = BankUser("Joe");
+#interface_fn = ATMSession(user)
+#interface_fn()

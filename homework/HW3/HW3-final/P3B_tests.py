@@ -66,10 +66,10 @@ test_over_withdrawal();
 
 '''
 Error: There already exists such an account type
-not be able to withdraw more money than the balance of the account
+Error: not be able to withdraw more money than the balance of the account
 Error: No such an account type
-not be able to withdraw a negative amount from your account
-not be able to deposit a negative amount into your account
+Error: not be able to withdraw a negative amount from your account
+Error: not be able to deposit a negative amount into your account
 Error: No such an account type
 Error: No such an account type
 100
