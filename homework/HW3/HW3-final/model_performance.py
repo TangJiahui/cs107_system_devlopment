@@ -32,10 +32,10 @@ for i in alphas:
 
 ## plotting 
 plt.figure(figsize=(10,7))
-plt.plot(np.log(alphas),linreg_score)
-plt.plot(np.log(alphas),ridreg_score)
-plt.xlabel("Ln of alpha")
+plt.plot(alphas, linreg_score)
+plt.plot(alphas, ridreg_score)
+plt.xlabel("alpha")
 plt.ylabel("model $R^2$ scores")
 plt.legend(["Linear Regression", "Ridge Regression"])
-plt.title("Model Performance w.r.t to various Logarithm(ln) Alpha Value")
+plt.title("Model Performance w.r.t to various Alpha Value")
 plt.savefig('P2F.png')
