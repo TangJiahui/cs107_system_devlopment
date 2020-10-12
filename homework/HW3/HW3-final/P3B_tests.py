@@ -1,6 +1,6 @@
-from bank import BankUser
-from bank import AccountType
-from bank import BankAccount
+from Bank import BankUser
+from Bank import AccountType
+from Bank import BankAccount
 
 def test_over_withdrawal(): #this test function should throw an Exception or Error 
     user = BankUser("Joe");

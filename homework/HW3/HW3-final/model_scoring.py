@@ -1,9 +1,8 @@
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 #import regression classes
-from Regression import Regression
-from Regression import LinearRegression
-from Regression import RidgeRegression
+import Regression as Reg
+
 
 dataset = datasets.load_boston()
 X_train, X_test, y_train, y_test = train_test_split(dataset['data'], 
@@ -12,8 +11,8 @@ X_train, X_test, y_train, y_test = train_test_split(dataset['data'],
                                                     random_state=42)
 
 alpha = 0.1
-linreg = LinearRegression()
-ridreg = RidgeRegression()
+linreg = Reg.LinearRegression()
+ridreg = Reg.RidgeRegression()
 ridreg.set_params(alpha=alpha)
 models = [linreg, ridreg]
 
