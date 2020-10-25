@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+
+
+	{% block script %} 
+	<script src="{{ url_for('static', filename='js/graphwindow.js') }}"></script>
+	{% endblock %}
+	
+	{% block heading %}
+	Automatic Differentiation Visualization Tool<br><small style="font-size:38px;">Function Visualization</small>
+	{% endblock %}
+	
+	{% block body %}
+	<p>Let's visualize how automatic differentiation is performed on your function!
+	<br> Now, set values for the input variables to calcuate the value and derivatives of your functions.
+	<!-- <br> Then, press 'Set Input Values' to calculate the value and derivative of your function at this point. -->
+	</p>
+
+	{% if errors %}
+	<div class="alert alert-danger" role="alert">
+		{{ errors }}
+	</div>
+	{% endif %}
+	
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<p class='function-formula'> $ f_1{{ wrap_brackets(convert_latex(flabels[ins])) }} = {{ clean_latex(convert_latex(func_content[0])) }} $</p>
+
+				{% if outs>1 %}
+				<p class='function-formula'> $ f_2{{ wrap_brackets(convert_latex(flabels[ins])) }} = {{ clean_latex(convert_latex(func_content[1])) }} $</p>
+				{% endif %}
+			
+			
+				{% if outs>2 %}
+				<p class='function-formula'> $ f_3{{ wrap_brackets(convert_latex(flabels[ins])) }} = {{ clean_latex(convert_latex(func_content[2])) }} $</p>
+				{% endif %}
+			</div>
+
+			<div class="col-sm">
+				{% if full %}
+				<p> <b>Function value</b><br>  {{ val }}  </p>
+				<p> <b>Function gradient</b><br> {{ to_matrix(der) |safe }} </p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+
+	<form method="post" action="./graphwindow">
+	<table class='input-table'>
+		<tr>
+			<td>
+				$x_0$ = <input name="x" size="7" value={{var_strs['x']}}> &nbsp;
+			</td>
+			{% if ins>1 %}
+			<td>
+				$x_1$ = <input name="y" size="7" value = {{var_strs['y']}}> &nbsp;
+			</td>
+			{% endif %}
+			{% if ins>2 %}
+			<td>
+				$x_2$ = <input name="z" size="7"  value = {{var_strs['z']}}> &nbsp;
+			</td>
+			{% endif %}
+			{% if ins>3 %}
+			<td>
+				$x_3$ = <input name="u" size="7"  value = {{var_strs['u']}}> &nbsp;
+			</td>
+			{% endif %}
+			{% if ins>4 %}
+			<td>
+				$x_4$ = <input name="v" size="7"  value = {{var_strs['v']}}>
+			</td>
+			{% endif %}
+		</tr>
+	</table>
+	<br>
+	<input id='textbutton' class="btn btn-lg btn-primary" type="submit" name="action" value="Set Input Values">
+	</form>
+	
+	<br>
+
+	{% if full %}
+	
+
+	<br>
+
+	<p> You can visualize the computational graph and evaluation table associated with each function in forward mode. <br>
+		<!-- Press the button corresponding to the function you want to analyze under each heading. -->
+		You can also dynamically visualize the steps in the calculation of a derivative in reverse mode or view the entire reverse graph.
+	</p>
+
+
+	<form name='select-func-viz' method="post" action="{{ url_for('select_func_viz') }}">
+		<p> 
+		Select a function to visualize:
+			<input id='textbutton' class="btn btn-lg btn-outline-info" type='submit' name='action' value='f1'>
+		{% if outs>1 %}
+			<input id='textbutton' class="btn btn-lg btn-outline-info" type='submit' name='action' value='f2'>
+		{% endif %}
+		{% if outs>2 %}
+			<input id='textbutton' class="btn btn-lg btn-outline-info" type='submit' name='action' value='f3'>
+		{% endif %}
+		</p>
+	</form>
+
+
+
+
+		<br><br>
+		<div id="graphbox" class='container hidden'>
+		
+				<div class="row">
+				
+					<div class="col" id='forward'>
+						<h2>FORWARD MODE</h2>
+						<h3>Computational Graph</h3>
+							<div id='computational-graph'></div>
+				 	</div>
+
+					<div class="col" id='reverse'>
+						<h2>REVERSE MODE</h2>
+						<h3>Reverse Graph</h3>
+						<div id='reverse-graph'></div>
+					</div>
+				
+				</div>
+				<div class="row">
+				
+					<div class="col">				
+						<h3>Evaluation Table</h3>
+						<div id='evaluation-table'></div>
+				  	</div>
+				
+				  	<div class="col">
+						<h3>Visualize Reverse Calculations</h3>
+						<form name='partial-der' method="post" action="{{ url_for('partial_der') }}"></form>
+						<div id='reverse-dynamic'></div>	
+
+						<form name='navigate-steps' method="post" action="{{ url_for('navigate_steps') }}"></form>
+				  	</div>
+				
+				</div>
+			  </div>
+			
+
+
+		<!-- <br><br>
+		<div id="graphbox" class='hidden'>
+
+			<div id="forward">
+				<h2>FORWARD MODE</h2>
+				<h3>Computational Graph</h3>
+					<div id='computational-graph'></div>
+				<h3>Evaluation Table</h3>
+					<div id='evaluation-table'></div>
+			</div>
+
+			<div id="reverse">
+				<h2>REVERSE MODE</h2>
+				<h3>Reverse Graph</h3>
+				<div id='reverse-graph'></div>
+
+				<h3>Visualize Reverse Calculations</h3>
+				<form name='partial-der' method="post" action="{{ url_for('partial_der') }}"></form>
+				<div id='reverse-dynamic'></div>	
+
+				<form name='navigate-steps' method="post" action="{{ url_for('navigate_steps') }}"></form>
+			
+			</div>
+		</div> -->
+
+
+
+	{% endif %}
+
+	{% endblock %}
+
+
