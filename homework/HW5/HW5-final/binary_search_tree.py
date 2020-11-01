@@ -39,14 +39,14 @@ class BSTTable:
             node.right = self._put(node.right, key,val)
         # recalculate size of the tree
         node.size = self._size(node.right) + self._size(node.left) + 1
-        return node
+        return nodeg i
 
     def _get(self, node, key):
         if node is None:
             raise KeyError('No node with this Key')
         if key == node.key:
             return node.val
-        elif key< node.key:
+        elif key < node.key:
             return self._get(node.left, key)
         else:
             return self._get(node.right, key)
@@ -65,7 +65,8 @@ if __name__ == '__main__':
     greektoroman.put('Aphrodite', 'Venus')
     greektoroman.put('Abcdef', 'test1')
     greektoroman.put('Dddd', 'test2')
-    greektoroman.put('Zzzz', 'test3')
+    greektoroman.put('Dddd', 'test3')
+    greektoroman.put('Zzzz', 'test4')
     print(greektoroman)
     print(greektoroman.get('Eros'))
     print(greektoroman.get('Zzzz'))
