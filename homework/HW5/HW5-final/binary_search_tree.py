@@ -39,7 +39,7 @@ class BSTTable:
             node.right = self._put(node.right, key,val)
         # recalculate size of the tree
         node.size = self._size(node.right) + self._size(node.left) + 1
-        return nodeg i
+        return node
 
     def _get(self, node, key):
         if node is None:
@@ -55,22 +55,22 @@ class BSTTable:
     def _size(node):
         return node.size if node else 0
 
-if __name__ == '__main__':
-    greektoroman = BSTTable()
-    print(greektoroman)
-    greektoroman.put('Athena', 'Minerva')
-    print(greektoroman)
-    greektoroman.put('Eros', 'Cupid')
-    print(greektoroman)
-    greektoroman.put('Aphrodite', 'Venus')
-    greektoroman.put('Abcdef', 'test1')
-    greektoroman.put('Dddd', 'test2')
-    greektoroman.put('Dddd', 'test3')
-    greektoroman.put('Zzzz', 'test4')
-    print(greektoroman)
-    print(greektoroman.get('Eros'))
-    print(greektoroman.get('Zzzz'))
-    try:
-        print(greektoroman.get('Alice'))
-    except Exception as error:
-        print(error)
+# if __name__ == '__main__':
+#     greektoroman = BSTTable()
+#     print(greektoroman)
+#     greektoroman.put('Athena', 'Minerva')
+#     print(greektoroman)
+#     greektoroman.put('Eros', 'Cupid')
+#     print(greektoroman)
+#     greektoroman.put('Aphrodite', 'Venus')
+#     greektoroman.put('Abcdef', 'test1')
+#     greektoroman.put('Dddd', 'test2')
+#     greektoroman.put('Dddd', 'test3')
+#     greektoroman.put('Zzzz', 'test4')
+#     print(greektoroman)
+#     print(greektoroman.get('Eros'))
+#     print(greektoroman.get('Zzzz'))
+#     try:
+#         print(greektoroman.get('Alice'))
+#     except Exception as error:
+#         print(error)

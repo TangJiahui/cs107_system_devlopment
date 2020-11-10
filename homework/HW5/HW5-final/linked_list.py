@@ -74,16 +74,16 @@ class Nil():
     def for_each(self, fun):
         return self
 
-if __name__ == '__main__':
-    # demo-c
-    l = Nil().prepend(1).prepend(2).prepend(3).prepend(4)
-    def square(x):
-        return x**2
-    print(l)
-    print(l.for_each(square))
-
-    # demo-d
-    def smaller(a, b): # our "combine" function
-        return a if a < b else b
-    print(l)
-    print(l.reduce_right(smaller))
+# if __name__ == '__main__':
+#     # demo-c
+#     l = Nil().prepend(1).prepend(2).prepend(3).prepend(4)
+#     def square(x):
+#         return x**2
+#     print(l)
+#     print(l.for_each(square))
+#
+#     # demo-d
+#     def smaller(a, b): # our "combine" function
+#         return a if a < b else b
+#     print(l)
+#     print(l.reduce_right(smaller))

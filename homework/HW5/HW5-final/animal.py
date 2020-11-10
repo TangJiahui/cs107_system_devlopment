@@ -32,10 +32,10 @@ class Animal:
         self._species = into
 
 
-if __name__ == '__main__':
-    # demo
-    dog = Animal('Fido', 'dog')
-    print(dog.species)
-    dog.species = 'cat'
-    print(dog.species)
-    dog.species = 'TheThing'
+# if __name__ == '__main__':
+#     # demo
+#     dog = Animal('Fido', 'dog')
+#     print(dog.species)
+#     dog.species = 'cat'
+#     print(dog.species)
+#     dog.species = 'TheThing'

@@ -20,5 +20,5 @@ def longest_sentence():
     return new_lst.reduce_right(lambda x,y: max(x,y))
 
 
-if __name__ == '__main__':
-    print(longest_sentence())
+# if __name__ == '__main__':
+#     print(longest_sentence())
