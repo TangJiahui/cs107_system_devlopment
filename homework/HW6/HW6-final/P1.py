@@ -185,3 +185,22 @@ class DFSTraversal():
 # traversal = DFSTraversal(bst, DFSTraversalTypes.INORDER)
 # for node in traversal:
 #     print(str(node.key) + ', ' + node.val)
+#
+# t = BSTTable()
+# t.put(5, 'a')
+# t.put(1, 'b')
+# t.put(2, 'c')
+# t.put(0, 'd')
+# print(t)
+# print(t._remove(t._root, 5))
+# print(t._remove(t._root, 1))
+#
+#
+# t2 = BSTTable()
+# t2.put(5, 'a')
+# t2.put(1, 'b')
+# t2.put(2, 'c')
+# t2.put(0, 'd')
+# print(t2)
+# print(t2._remove(t2._root, 2))
+# print(t2._remove(t2._root, 1))
