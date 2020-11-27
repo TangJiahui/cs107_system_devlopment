@@ -119,7 +119,7 @@ query = '''SELECT * FROM model_results ORDER BY test_score DESC LIMIT 1'''
 best_model_record = cursor.execute(query).fetchall()
 best_model_id = int(best_model_record[0][0])
 print("Best model id: %i" % best_model_id)
-print("Best validation score: %.4f" % best_model_record[0][3])
+print("Best validation score: %f" % best_model_record[0][3])
 
 
 # print and store coef and intercept
